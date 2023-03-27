@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import axios from 'axios'
 import categories from './categories.json'
+import CategoryCarusel from '../components/CategoryCarusel.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -33,7 +34,7 @@ const addQuery = async (key, value) => {
 </script>
 
 <template>
-  <h1>Home</h1>
+  <!-- <CategoryCarusel /> -->
   <div>
     <ul v-for="category in categories" :key="category.id">
       <li>
@@ -41,10 +42,11 @@ const addQuery = async (key, value) => {
       </li>
     </ul>
   </div>
+  <h1>Products</h1>
   <div v-if="isLoaded">
     <ul>
       <li v-for="product in products" :key="product.id">
-        <img :src="product.image" :alt="product.title">
+        <img :src="product.image" :alt="product.title" />
         <p>{{ product.title }}</p>
       </li>
     </ul>
